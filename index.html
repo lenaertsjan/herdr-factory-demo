@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A tiny local-first task manager for testing herdr-factory." />
+    <title>Taskbox</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">herdr-factory demo</p>
+        <h1>Taskbox</h1>
+        <p>Small tasks, stored only in this browser.</p>
+      </header>
+
+      <form id="task-form" class="task-form">
+        <label for="task-title">What needs doing?</label>
+        <div class="input-row">
+          <input id="task-title" name="title" maxlength="120" autocomplete="off" required />
+          <button type="submit">Add task</button>
+        </div>
+        <p id="form-error" class="error" role="alert"></p>
+      </form>
+
+      <section aria-labelledby="task-heading">
+        <div class="section-heading">
+          <h2 id="task-heading">Tasks</h2>
+          <span id="task-count" aria-live="polite"></span>
+        </div>
+        <ul id="task-list" class="task-list"></ul>
+        <p id="empty-state" class="empty-state">No tasks yet. Add one above.</p>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <li class="task">
+        <label>
+          <input class="task-toggle" type="checkbox" />
+          <span class="task-title"></span>
+        </label>
+        <button class="task-delete" type="button">Delete</button>
+      </li>
+    </template>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
